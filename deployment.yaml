@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheusflask
+  namespace: monitoring
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: prometheusflask
+  template:
+    metadata:
+      labels:
+        app: prometheusflask
+    spec:
+      containers:
+      - image: aimmopostregistry.azurecr.io/promescheduler:latest
+        name: prometheusflask
+        ports:
+        - containerPort: 5000
