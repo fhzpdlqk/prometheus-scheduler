@@ -15,7 +15,7 @@ name: Build and deploy an app to AKS
 on:
   push:
     branches:
-      - "main"
+      - "master"
 
 env:
   AZURE_CONTAINER_REGISTRY: "aimmopostregistry"
