@@ -29,7 +29,6 @@ def create_app(test_config=None):
 
     @app.route("/metrics")
     def requests_gauge():
-        requests_total.inc()
         return Response(prometheus_client.generate_latest(registry),
                         mimetype="text/plain")
     return app
