@@ -11,7 +11,7 @@ sched = BackgroundScheduler()
 registry = CollectorRegistry()
 g = Gauge('my_inprogress_requests', 'Description of gauge', registry=registry)
 
-@sched.scheduled_job('interval', seconds=5, id="test1")
+@sched.scheduled_job('interval', seconds=10, id="test1")
 def get_api():
     API_HOST = "http://20.196.229.134:5000/matrics"
     headers = {'Content-Type': 'application/json'}
